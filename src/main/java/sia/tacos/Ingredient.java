@@ -1,17 +1,17 @@
 package sia.tacos;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.domain.Persistable;
-import org.springframework.data.relational.core.mapping.Table;
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-@Table
+@Entity
 @AllArgsConstructor
-// @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
-public class Ingredient implements Persistable<String> {
+@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+public class Ingredient {
 
     @Id
     private final String id;
@@ -20,11 +20,5 @@ public class Ingredient implements Persistable<String> {
 
     public enum Type {
         WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE
-    }
-
-    @Override
-    public boolean isNew() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isNew'");
     }
 }
